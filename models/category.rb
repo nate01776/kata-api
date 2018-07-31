@@ -1,3 +1,3 @@
-class Category < ActiveRecord
-    belongs_to :pets
+class Category < ActiveRecord::Base
+    has_many :pets
 end

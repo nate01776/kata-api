@@ -1,4 +1,4 @@
 class Pet < ActiveRecord::Base
-    has_many :tags
-    has_many :categories
+    # has_many :tags
+    belongs_to :category
 end

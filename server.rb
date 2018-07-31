@@ -15,10 +15,6 @@ post '/pet' do
     return_errors = []
     post_body = JSON.parse(request.body.read).symbolize_keys unless params[:path]
     create_pet = Pet.create(:name => post_body[:name], :status => post_body[:status])
-
-    # name, status map
-    # create_pet[:name] = post_body[:name]
-    # create_pet[:status] = post_body[:status]
     
     # handle photo url validation and map
     if post_body[:photoUrls].kind_of?(Array)
@@ -48,37 +44,12 @@ post '/pet' do
         return_errors << "Please verify the category object is correctly constructed"
     end
 
-    # handle tag validation, creation and map
-    # if post_body[:tags] != nil
-    #     if post_body[:tags].is_a?(Array)
-    #         post_body[:tags].each do |tag|
-    #             if Tag.exists?(tag["id"])
-    #                 stored_tag = Tag.find(tag["id"])
-    #                 if stored_tag[:name] == tag["name"]
-    #                     # stored_tag.pets << create_pet
-    #                 else
-    #                     return_errors << "Please verify the tag id submitted matches the name"
-    #                 end
-    #             else
-    #                 # This should be mapped to a seperate API call v3
-    #                 new_tag = Tag.new
-    #                 new_tag[:name] = tag["name"]
-    #                 new_tag.save
-    #                 # new_tag.pets << create_pet
-    #             end
-    #         end
-    #     else
-    #         return_errors << "Please make sure tag objects are being sent as an array"
-    #     end
-    # else
-    #     return_errors << "Please verify tags are included in the request object"
-    # end
-
     if post_body[:tags] != nil
         if post_body[:tags].is_a?(Array)
             holder_array = []
             post_body[:tags].each do |tag|
-                holder_array << tag
+                holder_array << tag.to_json
+                # binding.pry
             end
             create_pet[:tags] = holder_array
         else
@@ -97,18 +68,22 @@ post '/pet' do
         content_type :json
         return 500, {:status => 500, :message => "Internal server error - please contact the system administrator"}.to_json
     end
-
-    # if return_errors isn't empty
-    #   return errors
-    # elsif create_pet.save
-    #     200
-    # elsif error_message
-    #     405 Method Not Allowed
-    # else
-    #     puts "Bad Request"
-    # end
 end
 
 get '/pet/:id' do
-    binding.pry
+    return_errors = []
+    id_param = params[:id].to_i
+    return_pet = nil
+
+    if Pet.exists?(id_param)
+        return_pet = Pet.find(id_param)
+    else
+        return_errors << "Pet not found"
+    end
+    
+    if return_pet
+        return 200, {:status => 200, :message => return_pet}.to_json
+    else
+        return 404, {:status => 404, :message => return_errors}.to_json
+    end
 end

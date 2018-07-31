@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_07_25_210201) do
     t.bigint "category_id"
     t.string "name"
     t.text "photoUrls"
-    t.text "tags"
+    t.text "tags", default: [], array: true
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

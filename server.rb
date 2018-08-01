@@ -2,10 +2,15 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'pry'
+
 # models
 require './models/category.rb'
 require './models/pet.rb'
 require './models/tag.rb'
+
+before do
+    content_type 'application/json'
+end
 
 get '/' do
     resp_obj = {:message => 'Please revisit documentation for this API: http://petstore.swagger.io'}

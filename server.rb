@@ -75,7 +75,10 @@ get '/pet/:id' do
     id_param = params[:id].to_i
     return_pet = nil
 
-    if Pet.exists?(id_param)
+    # perform id is integer check
+    if id_param == 0
+        return_errors << "Please submit a valid id"
+    elsif Pet.exists?(id_param)
         return_pet = Pet.find(id_param)
     else
         return_errors << "Pet not found"

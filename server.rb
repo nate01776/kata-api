@@ -1,9 +1,11 @@
+# gem dependencies
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'pry'
-
-current_dir = Dir.pwd
-Dir["#{current_dir}/models/*.rb"].each { |file| require file }
+# models
+require './models/category.rb'
+require './models/pet.rb'
+require './models/tag.rb'
 
 get '/' do
     resp_obj = {:message => 'Please revisit documentation for this API: http://petstore.swagger.io'}
@@ -60,13 +62,13 @@ post '/pet' do
     # save pet and return status
     if return_errors != []
         content_type :json
-        return 400, {status => 400, :message => return_errors}.to_json
+        return 405, {status => 405, :message => return_errors}.to_json
     elsif create_pet.save
         content_type :json
         return 200, {:status => 200, :message => create_pet}.to_json
     else
         content_type :json
-        return 500, {:status => 500, :message => "Internal server error - please contact the system administrator"}.to_json
+        return 500, {:status => 500, :message => "Server error - please contact the system administrator"}.to_json
     end
 end
 
@@ -78,6 +80,7 @@ get '/pet/:id' do
     # perform id is integer check
     if id_param == 0
         return_errors << "Please submit a valid id"
+        return 400, {:status => 400, :message => return_errors}.to_json
     elsif Pet.exists?(id_param)
         return_pet = Pet.find(id_param)
     else
@@ -88,5 +91,17 @@ get '/pet/:id' do
         return 200, {:status => 200, :message => return_pet}.to_json
     else
         return 404, {:status => 404, :message => return_errors}.to_json
+    end
+end
+
+put '/pet' do
+    return_errors = []
+    post_body = JSON.parse(request.body.read).symbolize_keys unless params[:path]
+    
+    # check pet exists
+    if Pet.exists?(post_body[:id])
+        update_pet = Pet.find(post_body[:id])
+    else
+        return_errors << "Invalid ID supplied"
     end
 end

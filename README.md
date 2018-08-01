@@ -12,6 +12,7 @@ Support for the internal demo environment
 bundle install
 bundle update
 ```
+- Verify the /config/database.yaml settings are correct
 
 ### start 
 ```

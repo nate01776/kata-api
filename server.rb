@@ -29,7 +29,7 @@ post '/pet' do
     if post_body[:category] != nil
         if Category.exists?(post_body[:category]["id"])
             stored_category = Category.find(post_body[:category]["id"])
-            if stored_category[:name] == post_body[:category]["name"]
+            if stored_category[:name] == post_body[:category]["name"].downcase
                 create_pet.category = stored_category
             else
              return_errors << "Please verify the category id submitted matches the name" 
@@ -37,7 +37,7 @@ post '/pet' do
         else
             # v3 - This should be mapped to a seperate API call
             new_category = Category.new
-            new_category[:name] = post_body[:category]["name"]
+            new_category[:name] = post_body[:category]["name"].downcase
             new_category.save
 
             create_pet.category = new_category
@@ -121,7 +121,7 @@ put '/pet' do
             # Could this be broken out into a class level method?
             if Category.exists?(post_body[:category]["id"])
                 stored_category = Category.find(post_body[:category]["id"])
-                if stored_category[:name] == post_body[:category]["name"]
+                if stored_category[:name] == post_body[:category]["name"].downcase
                     update_pet.category = stored_category
                 else
                  return_errors << "Please verify the category id submitted matches the name" 
@@ -129,7 +129,7 @@ put '/pet' do
             else
                 # v3 - This should be mapped to a seperate API call
                 new_category = Category.new
-                new_category[:name] = post_body[:category]["name"]
+                new_category[:name] = post_body[:category]["name"].downcase
                 new_category.save
     
                 update_pet.category = new_category
@@ -154,7 +154,7 @@ put '/pet' do
         return_errors << "Invalid ID supplied"
     end
     
-    #if no errors, save
+    # if no errors, save
     if return_errors != []
         return_errors.each do |error|
             if error == "Invalid ID supplied"
@@ -165,7 +165,6 @@ put '/pet' do
                 return 405, {status => 405, :message => return_errors}.to_json
             end
         end
-        
     elsif update_pet.save
         content_type :json
         return 200, {:status => 200, :message => update_pet}.to_json

@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'bash \'./start.sh\''
+        sh 'nohup bash \'./start.sh\' &'
       }
     }
     stage('Test') {

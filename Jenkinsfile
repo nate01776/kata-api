@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'bash ./config/start.sh'
+        sh 'bash ./start.sh'
       }
     }
     stage('Test') {

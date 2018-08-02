@@ -14,12 +14,12 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh './config/start.sh'
+        sh 'bash ./config/start.sh'
       }
     }
     stage('Test') {
       steps {
-        sh 'curl \'http://10.0.25.247:4567/pet\''
+        sh 'curl \'http://10.0.25.247:4567/pet/1\''
       }
     }
   }

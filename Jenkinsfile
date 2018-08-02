@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'curl \'http://10.0.25.247:4567/pet\''
+        sh 'curl \'http://10.0.25.247:4567/pet/1\''
       }
     }
   }

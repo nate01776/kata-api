@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'ruby ./start.rb'
+        sh 'bash ./start.sh'
       }
     }
     stage('Test') {

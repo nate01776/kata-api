@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'nohup ruby ./server.rb -o 10.0.25.247 &!'
+        sh 'nohup ruby ./server.rb & -o 10.0.25.247'
       }
     }
     stage('Test') {

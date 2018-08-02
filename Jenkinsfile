@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'BUILD_ID=dontKillMe nohup bash start.sh &'
+        sh 'BUILD_ID=dontKillMe nohup \'ruby ./server.rb -o 10.0.25.247\' &'
       }
     }
     stage('Test') {

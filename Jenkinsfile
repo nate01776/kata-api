@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Reset') {
       steps {
-        sh 'bash ./scripts/kill.sh'
+        sh 'bash ./kill.sh'
         sh 'rake db:create'
         sh 'rake db:migrate:reset'
       }
@@ -15,7 +15,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh './scripts/start.sh'
+        sh './start.sh'
       }
     }
     stage('Test') {

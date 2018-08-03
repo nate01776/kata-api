@@ -1,1 +1,1 @@
-kill $(< ../logs/server.pid)
+kill $(< ./logs/server.pid)

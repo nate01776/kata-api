@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh '''sh \'export JENKINS_NODE_COOKIE=dontKillMe\' |
+        sh '''sh BUILD_ID=dontKillMe |
 sh ./start.sh'''
       }
     }

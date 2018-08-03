@@ -1,12 +1,7 @@
 pipeline {
-  agent {
-    docker {
-      image 'ruby:2.4.4-alpine3.7'
-    }
-
-  }
+  agent none
   stages {
-    stage('Reset') {
+    stage('Stage') {
       steps {
         sh 'rake db:create'
         sh 'rake db:migrate:reset'
@@ -14,7 +9,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'bundle'
+        sh 'bundler'
       }
     }
     stage('Deploy') {

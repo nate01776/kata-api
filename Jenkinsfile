@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'ruby:2.4.4-alpine3.7'
+    }
+
+  }
   stages {
     stage('Reset') {
       steps {

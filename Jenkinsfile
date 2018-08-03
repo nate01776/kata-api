@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'bash ./start.sh'
+        sh 'bash BUILD_ID=dontKillMe ./start.sh'
       }
     }
     stage('Test') {

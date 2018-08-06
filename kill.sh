@@ -1,1 +1,0 @@
-kill $(< ./logs/server.pid)

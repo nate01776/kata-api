@@ -1,9 +1,9 @@
 require 'sinatra/activerecord'
-# require 'sinatra/activerecord/rake'
+require 'sinatra/activerecord/rake'
+require 'rspec/core/rake_task'
 require './server.rb'
 
 begin
-#     require 'rspec/core/rake_task'
     RSpec::Core::RakeTask.new(:spec)
     task default: :spec
 rescue => exception

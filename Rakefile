@@ -1,5 +1,5 @@
 require 'sinatra/activerecord'
-require 'sinatra/activerecord/rake'
+# require 'sinatra/activerecord/rake'
 require './server.rb'
 
 begin

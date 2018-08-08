@@ -1,3 +1,3 @@
 require 'daemons'
 
-Daemons.run('./server.rb')
+Daemons.run('server.rb')

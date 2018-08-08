@@ -1,4 +1,6 @@
-require 'sinatra/activerecord'
+require_relative './server.rb'
+require 'rake'
+require 'rake/testtask'
 require 'sinatra/activerecord/rake'
 require 'rspec/core/rake_task'
 require './server.rb'

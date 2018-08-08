@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="dc219a41-5975-4ad0-9a63-d55fd2ece5ee" created="2.4.0" activeEnvironment="Default environment" name="Altitude" resourceRoot="" updated="2.4.0 2018-06-08T12:50:23Z" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="dc219a41-5975-4ad0-9a63-d55fd2ece5ee" created="2.4.0" activeEnvironment="Default environment" name="Altitude" resourceRoot="" updated="2.4.0 2018-06-08T12:50:23Z" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
   <con:settings/>
   <con:interface xsi:type="con:RestService" id="7bdc2724-bfe1-425e-a6aa-93150b254a6e" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://10.0.25.247:4567" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
@@ -53,6 +53,7 @@
           <con:request/>
           <con:originalUri>http://10.0.25.247/pet/1</con:originalUri>
           <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
             <con:authType>No Authorization</con:authType>
           </con:credentials>
           <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>

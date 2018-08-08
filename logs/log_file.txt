@@ -79,3 +79,18 @@ Please report a bug if this causes problems.
 == Sinatra has ended his set (crowd applauds)
 [2018-08-03 11:02:45] INFO  going to shutdown ...
 [2018-08-03 11:02:45] INFO  WEBrick::HTTPServer#start done.
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+D, [2018-08-08T15:06:34.954885 #2856] DEBUG -- :   [1m[36mPet Exists (8.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]

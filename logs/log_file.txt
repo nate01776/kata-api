@@ -1,0 +1,81 @@
+nohup: ignoring input
+WARN: Unresolved specs during Gem::Specification.reset:
+      minitest (~> 5.1)
+WARN: Clearing out unresolved specs.
+Please report a bug if this causes problems.
+[2018-08-03 10:47:59] INFO  WEBrick 1.3.1
+[2018-08-03 10:47:59] INFO  ruby 2.3.3 (2016-11-21) [x86_64-linux-gnu]
+== Sinatra (v2.0.3) has taken the stage on 4567 for development with backup from WEBrick
+[2018-08-03 10:47:59] INFO  WEBrick::HTTPServer#start: pid=31155 port=4567
+10.0.25.247 - - [03/Aug/2018:10:48:17 -0400] "GET / HTTP/1.1" 200 83 0.0091
+10.0.25.247 - - [03/Aug/2018:10:48:17 EDT] "GET / HTTP/1.1" 200 83
+- -> /
+10.0.26.137 - - [03/Aug/2018:10:48:22 -0400] "GET /pet/1 HTTP/1.1" 404 42 0.0456
+10.0.26.137 - - [03/Aug/2018:10:48:22 EDT] "GET /pet/1 HTTP/1.1" 404 42
+- -> /pet/1
+== Sinatra has ended his set (crowd applauds)
+[2018-08-03 10:49:25] INFO  going to shutdown ...
+[2018-08-03 10:49:25] INFO  WEBrick::HTTPServer#start done.
+D, [2018-08-03T10:48:22.632637 #31155] DEBUG -- :   [1m[36mPet Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+nohup: ignoring input
+WARN: Unresolved specs during Gem::Specification.reset:
+      minitest (~> 5.1)
+WARN: Clearing out unresolved specs.
+Please report a bug if this causes problems.
+[2018-08-03 10:57:48] INFO  WEBrick 1.3.1
+[2018-08-03 10:57:48] INFO  ruby 2.3.3 (2016-11-21) [x86_64-linux-gnu]
+== Sinatra (v2.0.3) has taken the stage on 4567 for development with backup from WEBrick
+[2018-08-03 10:57:48] INFO  WEBrick::HTTPServer#start: pid=31239 port=4567
+10.0.26.137 - - [03/Aug/2018:10:58:24 -0400] "GET /pet/1 HTTP/1.1" 404 42 0.0516
+10.0.26.137 - - [03/Aug/2018:10:58:24 EDT] "GET /pet/1 HTTP/1.1" 404 42
+- -> /pet/1
+== Sinatra has ended his set (crowd applauds)
+[2018-08-03 10:58:32] INFO  going to shutdown ...
+[2018-08-03 10:58:32] INFO  WEBrick::HTTPServer#start done.
+D, [2018-08-03T10:58:24.831346 #31239] DEBUG -- :   [1m[36mPet Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+nohup: ignoring input
+WARN: Unresolved specs during Gem::Specification.reset:
+      minitest (~> 5.1)
+WARN: Clearing out unresolved specs.
+Please report a bug if this causes problems.
+[2018-08-03 11:00:58] INFO  WEBrick 1.3.1
+[2018-08-03 11:00:58] INFO  ruby 2.3.3 (2016-11-21) [x86_64-linux-gnu]
+== Sinatra (v2.0.3) has taken the stage on 4567 for development with backup from WEBrick
+[2018-08-03 11:00:58] INFO  WEBrick::HTTPServer#start: pid=31271 port=4567
+10.0.26.137 - - [03/Aug/2018:11:01:30 -0400] "GET /pet/1 HTTP/1.1" 404 42 0.0511
+10.0.26.137 - - [03/Aug/2018:11:01:30 EDT] "GET /pet/1 HTTP/1.1" 404 42
+- -> /pet/1
+10.0.26.137 - - [03/Aug/2018:11:01:34 -0400] "POST /pet HTTP/1.1" 200 385 0.0465
+10.0.26.137 - - [03/Aug/2018:11:01:34 EDT] "POST /pet HTTP/1.1" 200 385
+- -> /pet
+10.0.26.137 - - [03/Aug/2018:11:01:36 -0400] "GET /pet/1 HTTP/1.1" 200 385 0.0089
+10.0.26.137 - - [03/Aug/2018:11:01:36 EDT] "GET /pet/1 HTTP/1.1" 200 385
+- -> /pet/1
+== Sinatra has ended his set (crowd applauds)
+[2018-08-03 11:01:40] INFO  going to shutdown ...
+[2018-08-03 11:01:40] INFO  WEBrick::HTTPServer#start done.
+D, [2018-08-03T11:01:30.705591 #31271] DEBUG -- :   [1m[36mPet Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-03T11:01:34.667095 #31271] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-03T11:01:34.669748 #31271] DEBUG -- :   [1m[36mPet Create (1.3ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Trixie"], ["status", "available"], ["created_at", "2018-08-03 15:01:34.667451"], ["updated_at", "2018-08-03 15:01:34.667451"]]
+D, [2018-08-03T11:01:34.671078 #31271] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-03T11:01:34.678077 #31271] DEBUG -- :   [1m[36mCategory Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-03T11:01:34.683811 #31271] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-03T11:01:34.685499 #31271] DEBUG -- :   [1m[36mCategory Create (0.7ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "dog"], ["created_at", "2018-08-03 15:01:34.684136"], ["updated_at", "2018-08-03 15:01:34.684136"]]
+D, [2018-08-03T11:01:34.686314 #31271] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-03T11:01:34.691125 #31271] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-03T11:01:34.693314 #31271] DEBUG -- :   [1m[36mPet Update (0.5ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.pexels.com/photos/248307/pexels-photo-248307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940\"]"], ["tags", "{\"{\\\"id\\\":1,\\\"name\\\":\\\"cute\\\"}\",\"{\\\"id\\\":2,\\\"name\\\":\\\"fun\\\"}\"}"], ["updated_at", "2018-08-03 15:01:34.691449"], ["id", 1]]
+D, [2018-08-03T11:01:34.694012 #31271] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-03T11:01:36.449861 #31271] DEBUG -- :   [1m[36mPet Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-03T11:01:36.451763 #31271] DEBUG -- :   [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+nohup: ignoring input
+WARN: Unresolved specs during Gem::Specification.reset:
+      minitest (~> 5.1)
+WARN: Clearing out unresolved specs.
+Please report a bug if this causes problems.
+[2018-08-03 11:02:16] INFO  WEBrick 1.3.1
+[2018-08-03 11:02:16] INFO  ruby 2.3.3 (2016-11-21) [x86_64-linux-gnu]
+== Sinatra (v2.0.3) has taken the stage on 4567 for development with backup from WEBrick
+[2018-08-03 11:02:16] INFO  WEBrick::HTTPServer#start: pid=31282 port=4567
+== Sinatra has ended his set (crowd applauds)
+[2018-08-03 11:02:45] INFO  going to shutdown ...
+[2018-08-03 11:02:45] INFO  WEBrick::HTTPServer#start done.

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="dc219a41-5975-4ad0-9a63-d55fd2ece5ee" created="2.4.0" activeEnvironment="local" name="Altitude" resourceRoot="" updated="2.4.0 2018-06-08T12:50:23Z" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="dc219a41-5975-4ad0-9a63-d55fd2ece5ee" created="2.4.0" activeEnvironment="Default environment" name="Altitude" resourceRoot="" updated="2.4.0 2018-06-08T12:50:23Z" xmlns:con="http://eviware.com/soapui/config">
   <con:settings/>
   <con:interface xsi:type="con:RestService" id="7bdc2724-bfe1-425e-a6aa-93150b254a6e" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://10.0.25.247:4567" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
@@ -7,9 +7,17 @@
     <con:endpoints>
       <con:endpoint>http://10.0.25.247:4567</con:endpoint>
     </con:endpoints>
-    <con:resource name="1" path="/pet/1" id="f26bd496-412c-4576-84ab-96f977b77ac6">
+    <con:resource name="/pet/{id}" path="/pet/{id}" id="f26bd496-412c-4576-84ab-96f977b77ac6">
       <con:settings/>
-      <con:parameters/>
+      <con:parameters>
+        <con:parameter required="true">
+          <con:name>id</con:name>
+          <con:value/>
+          <con:style>TEMPLATE</con:style>
+          <con:default/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
       <con:method name="1" id="2edabb00-3871-48b0-b86f-4115acb7c91b" method="GET">
         <con:settings/>
         <con:parameters/>
@@ -31,6 +39,12 @@
           <con:params/>
           <con:element xmlns:ns="http://10.0.25.247/pet/1">ns:Response</con:element>
         </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+          <con:element xmlns:ns="http://10.0.25.247/pet/1">ns:Fault</con:element>
+        </con:representation>
         <con:request name="Request 1" id="07808f86-36dc-498a-8afb-f88eb1ce2e96" mediaType="application/json">
           <con:settings>
             <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
@@ -42,7 +56,12 @@
             <con:authType>No Authorization</con:authType>
           </con:credentials>
           <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-          <con:parameters/>
+          <con:parameters>
+            <entry key="id" value="1" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
         </con:request>
       </con:method>
     </con:resource>

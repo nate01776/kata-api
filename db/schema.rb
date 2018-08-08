@@ -16,17 +16,17 @@ ActiveRecord::Schema.define(version: 2018_07_25_210201) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "pets", force: :cascade do |t|
     t.bigint "category_id"
-    t.string "name"
+    t.string "name", null: false
     t.text "photoUrls"
-    t.text "tags", default: [], array: true
-    t.string "status"
+    t.text "tags", default: [], null: false, array: true
+    t.string "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_pets_on_category_id"

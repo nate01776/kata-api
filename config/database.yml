@@ -3,21 +3,21 @@ development:
   encoding: unicode
   database: altitude_backend_dev
   pool: 2
-  username: rake
-  password: rakeuser
+  username: postgres
+  password: soapui123
 
 test:
   adapter: postgresql
   encoding: unicode
   database: altitude_backend_test
   pool: 2
-  username: rake
-  password: rakeuser
+  username: postgres
+  password: soapui123
 
 production:
   adapter: postgresql
   encoding: unicode
   database: altitude_backend_production
   pool: 2
-  username: rake
-  password: rakeuser
+  username: postgres
+  password: soapui123

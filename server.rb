@@ -12,12 +12,12 @@ before do
     content_type 'application/json'
 end
 
-get '/api/v1' do
+get '/v2' do
     resp_obj = {:message => 'Please revisit documentation for this API: http://petstore.swagger.io'}
     return JSON.generate(resp_obj)
 end
 
-post '/api/v1/pet' do
+post '/v2/pet' do
     # working variables
     return_errors = []
     post_body = JSON.parse(request.body.read).symbolize_keys unless params[:path]
@@ -77,7 +77,7 @@ post '/api/v1/pet' do
     end
 end
 
-get '/api/v1/pet/:id' do
+get '/v2/pet/:id' do
     return_errors = []
     id_param = params[:id].to_i
     return_pet = nil
@@ -99,7 +99,7 @@ get '/api/v1/pet/:id' do
     end
 end
 
-put '/api/v1/pet' do
+put '/v2/pet' do
     return_errors = []
     update_pet = nil
     post_body = JSON.parse(request.body.read).symbolize_keys unless params[:path]

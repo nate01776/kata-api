@@ -35,8 +35,6 @@ require "pry"
 # end
 
 class PetTest < ActiveSupport::TestCase
-    # fixtures :pets
-
     def test_create
         pet = Pet.create(:name => "Trixie", :status => "available")
         assert_equal "Trixie", pet.name

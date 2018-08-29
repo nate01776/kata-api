@@ -98,3 +98,181 @@ D, [2018-08-09T11:19:33.639743 #3972] DEBUG -- :   [1m[36mPet Exists (3.0ms)[
 D, [2018-08-09T11:19:33.643733 #3972] DEBUG -- :   [1m[36mPet Load (0.0ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
 D, [2018-08-09T11:19:38.248722 #3972] DEBUG -- :   [1m[36mPet Exists (3.0ms)[0m  [1m[34mSELECT  1 AS one FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
 D, [2018-08-09T11:19:38.256701 #3972] DEBUG -- :   [1m[36mPet Load (4.0ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:24.577174 #24460] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:24.594131 #24460] DEBUG -- :   [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Jelani"], ["status", "unavailable"], ["created_at", "2018-08-09 15:49:24.577174"], ["updated_at", "2018-08-09 15:49:24.577174"]]
+D, [2018-08-09T11:49:24.600115 #24460] DEBUG -- :   [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:24.617068 #24460] DEBUG -- :   [1m[36mCategory Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:24.622054 #24460] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:24.623090 #24460] DEBUG -- :   [1m[36mCategory Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "dog"], ["LIMIT", 1]]
+D, [2018-08-09T11:49:24.626045 #24460] DEBUG -- :   [1m[36mCategory Create (2.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "dog"], ["created_at", "2018-08-09 15:49:24.624047"], ["updated_at", "2018-08-09 15:49:24.624047"]]
+D, [2018-08-09T11:49:24.627041 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:24.637043 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:24.641004 #24460] DEBUG -- :   [1m[36mPet Update (2.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/whippet/n02091134_7935.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:49:24.638012"], ["id", 3]]
+D, [2018-08-09T11:49:24.642001 #24460] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:25.118299 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:25.122288 #24460] DEBUG -- :   [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Lydia"], ["status", "unavailable"], ["created_at", "2018-08-09 15:49:25.120296"], ["updated_at", "2018-08-09 15:49:25.120296"]]
+D, [2018-08-09T11:49:25.132261 #24460] DEBUG -- :   [1m[35m (9.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:25.138245 #24460] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:25.141238 #24460] DEBUG -- :   [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:25.150215 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:25.158192 #24460] DEBUG -- :   [1m[36mPet Update (1.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/newfoundland/n02111277_3560.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:49:25.155200"], ["id", 4]]
+D, [2018-08-09T11:49:25.159199 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:25.572688 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:25.575727 #24460] DEBUG -- :   [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Carson"], ["status", "available"], ["created_at", "2018-08-09 15:49:25.573686"], ["updated_at", "2018-08-09 15:49:25.573686"]]
+D, [2018-08-09T11:49:25.587713 #24460] DEBUG -- :   [1m[35m (11.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:25.622727 #24460] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:25.623724 #24460] DEBUG -- :   [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:25.625250 #24460] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:25.626757 #24460] DEBUG -- :   [1m[36mPet Update (1.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/coonhound/n02089078_3051.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:49:25.625250"], ["id", 5]]
+D, [2018-08-09T11:49:25.627753 #24460] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:25.995248 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:25.997242 #24460] DEBUG -- :   [1m[36mPet Create (0.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Ryan"], ["status", "unavailable"], ["created_at", "2018-08-09 15:49:25.996244"], ["updated_at", "2018-08-09 15:49:25.996244"]]
+D, [2018-08-09T11:49:26.008212 #24460] DEBUG -- :   [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:26.009215 #24460] DEBUG -- :   [1m[36mCategory Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:26.010207 #24460] DEBUG -- :   [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:26.012202 #24460] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:26.014199 #24460] DEBUG -- :   [1m[36mPet Update (1.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/pointer-german/n02100236_1997.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:49:26.012202"], ["id", 6]]
+D, [2018-08-09T11:49:26.015193 #24460] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:26.373262 #24460] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:26.374266 #24460] DEBUG -- :   [1m[36mPet Create (0.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Xanthus"], ["status", "available"], ["created_at", "2018-08-09 15:49:26.373262"], ["updated_at", "2018-08-09 15:49:26.373262"]]
+D, [2018-08-09T11:49:26.384232 #24460] DEBUG -- :   [1m[35m (9.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:26.386228 #24460] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:26.387225 #24460] DEBUG -- :   [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:26.388222 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:26.390216 #24460] DEBUG -- :   [1m[36mPet Update (1.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/spaniel-welsh/n02102177_1055.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:49:26.388222"], ["id", 7]]
+D, [2018-08-09T11:49:26.391214 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:26.765224 #24460] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:26.768215 #24460] DEBUG -- :   [1m[36mPet Create (0.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Beatrice"], ["status", "unavailable"], ["created_at", "2018-08-09 15:49:26.765224"], ["updated_at", "2018-08-09 15:49:26.765224"]]
+D, [2018-08-09T11:49:26.777190 #24460] DEBUG -- :   [1m[35m (9.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:26.779194 #24460] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:26.782177 #24460] DEBUG -- :   [1m[36mCategory Load (2.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:26.783176 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:26.788162 #24460] DEBUG -- :   [1m[36mPet Update (3.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/puggle/IMG_070809.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:49:26.784173"], ["id", 8]]
+D, [2018-08-09T11:49:26.790157 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:27.210074 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:27.212069 #24460] DEBUG -- :   [1m[36mPet Create (0.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Wing"], ["status", "available"], ["created_at", "2018-08-09 15:49:27.211073"], ["updated_at", "2018-08-09 15:49:27.211073"]]
+D, [2018-08-09T11:49:27.224038 #24460] DEBUG -- :   [1m[35m (11.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:27.230025 #24460] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:27.234010 #24460] DEBUG -- :   [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:27.236006 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:27.240992 #24460] DEBUG -- :   [1m[36mPet Update (0.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/deerhound-scottish/n02092002_2558.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:49:27.238000"], ["id", 9]]
+D, [2018-08-09T11:49:27.241989 #24460] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:27.533233 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:27.536224 #24460] DEBUG -- :   [1m[36mPet Create (0.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Lucius"], ["status", "available"], ["created_at", "2018-08-09 15:49:27.534238"], ["updated_at", "2018-08-09 15:49:27.534238"]]
+D, [2018-08-09T11:49:27.541211 #24460] DEBUG -- :   [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:27.543206 #24460] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:27.545201 #24460] DEBUG -- :   [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:27.547194 #24460] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:27.551184 #24460] DEBUG -- :   [1m[36mPet Update (0.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/basenji/n02110806_1033.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:49:27.548192"], ["id", 10]]
+D, [2018-08-09T11:49:27.553182 #24460] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:27.884329 #24460] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:27.890314 #24460] DEBUG -- :   [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cain"], ["status", "unavailable"], ["created_at", "2018-08-09 15:49:27.887321"], ["updated_at", "2018-08-09 15:49:27.887321"]]
+D, [2018-08-09T11:49:27.901284 #24460] DEBUG -- :   [1m[35m (10.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:27.914254 #24460] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:27.917242 #24460] DEBUG -- :   [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:27.918239 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:27.921231 #24460] DEBUG -- :   [1m[36mPet Update (0.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/bluetick/n02088632_2239.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:49:27.919236"], ["id", 11]]
+D, [2018-08-09T11:49:27.922230 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:28.305719 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:28.312701 #24460] DEBUG -- :   [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Eleanor"], ["status", "available"], ["created_at", "2018-08-09 15:49:28.309708"], ["updated_at", "2018-08-09 15:49:28.309708"]]
+D, [2018-08-09T11:49:28.322672 #24460] DEBUG -- :   [1m[35m (9.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:49:28.324668 #24460] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:28.325666 #24460] DEBUG -- :   [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:49:28.326664 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:49:28.328659 #24460] DEBUG -- :   [1m[36mPet Update (0.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/maltese/n02085936_3947.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:49:28.327661"], ["id", 12]]
+D, [2018-08-09T11:49:28.329657 #24460] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:31.141447 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:31.169371 #15680] DEBUG -- :   [1m[36mPet Create (3.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Tad"], ["status", "available"], ["created_at", "2018-08-09 15:51:31.144439"], ["updated_at", "2018-08-09 15:51:31.144439"]]
+D, [2018-08-09T11:51:31.172365 #15680] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:31.181340 #15680] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:31.184332 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:31.185330 #15680] DEBUG -- :   [1m[36mCategory Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "dog"], ["LIMIT", 1]]
+D, [2018-08-09T11:51:31.189319 #15680] DEBUG -- :   [1m[36mCategory Create (2.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "dog"], ["created_at", "2018-08-09 15:51:31.186326"], ["updated_at", "2018-08-09 15:51:31.186326"]]
+D, [2018-08-09T11:51:31.190317 #15680] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:31.197299 #15680] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:31.198295 #15680] DEBUG -- :   [1m[36mPet Update (0.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/cotondetulear/IMAG1063.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:51:31.197299"], ["id", 1]]
+D, [2018-08-09T11:51:31.199292 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:31.540381 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:31.544880 #15680] DEBUG -- :   [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Preston"], ["status", "available"], ["created_at", "2018-08-09 15:51:31.541378"], ["updated_at", "2018-08-09 15:51:31.541378"]]
+D, [2018-08-09T11:51:31.557845 #15680] DEBUG -- :   [1m[35m (13.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:31.560839 #15680] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:31.563830 #15680] DEBUG -- :   [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:31.566822 #15680] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:31.567820 #15680] DEBUG -- :   [1m[36mPet Update (0.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/labrador/n02099712_3776.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:51:31.566822"], ["id", 2]]
+D, [2018-08-09T11:51:31.568816 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:32.048929 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:32.051920 #15680] DEBUG -- :   [1m[36mPet Create (0.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Acton"], ["status", "unavailable"], ["created_at", "2018-08-09 15:51:32.049923"], ["updated_at", "2018-08-09 15:51:32.049923"]]
+D, [2018-08-09T11:51:32.060842 #15680] DEBUG -- :   [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:32.062836 #15680] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:32.063837 #15680] DEBUG -- :   [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:32.064834 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:32.068819 #15680] DEBUG -- :   [1m[36mPet Update (1.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/samoyed/n02111889_7049.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:51:32.065829"], ["id", 3]]
+D, [2018-08-09T11:51:32.069817 #15680] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:32.545264 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:32.549250 #15680] DEBUG -- :   [1m[36mPet Create (0.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Reece"], ["status", "unavailable"], ["created_at", "2018-08-09 15:51:32.547256"], ["updated_at", "2018-08-09 15:51:32.547256"]]
+D, [2018-08-09T11:51:32.558226 #15680] DEBUG -- :   [1m[35m (9.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:32.562216 #15680] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:32.564212 #15680] DEBUG -- :   [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:32.569198 #15680] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:32.572189 #15680] DEBUG -- :   [1m[36mPet Update (1.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/labrador/n02099712_5853.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:51:32.570197"], ["id", 4]]
+D, [2018-08-09T11:51:32.574183 #15680] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:32.899847 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:32.900844 #15680] DEBUG -- :   [1m[36mPet Create (0.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Macy"], ["status", "unavailable"], ["created_at", "2018-08-09 15:51:32.899847"], ["updated_at", "2018-08-09 15:51:32.899847"]]
+D, [2018-08-09T11:51:32.905831 #15680] DEBUG -- :   [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:32.907828 #15680] DEBUG -- :   [1m[36mCategory Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:32.908825 #15680] DEBUG -- :   [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:32.909822 #15680] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:32.911823 #15680] DEBUG -- :   [1m[36mPet Update (1.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/chow/n02112137_5089.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:51:32.909822"], ["id", 5]]
+D, [2018-08-09T11:51:32.912814 #15680] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:33.384067 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:33.388055 #15680] DEBUG -- :   [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Myra"], ["status", "available"], ["created_at", "2018-08-09 15:51:33.385064"], ["updated_at", "2018-08-09 15:51:33.385064"]]
+D, [2018-08-09T11:51:33.399026 #15680] DEBUG -- :   [1m[35m (10.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:33.402018 #15680] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:33.403016 #15680] DEBUG -- :   [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:33.405011 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:33.408002 #15680] DEBUG -- :   [1m[36mPet Update (1.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/dingo/n02115641_7106.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:51:33.405011"], ["id", 6]]
+D, [2018-08-09T11:51:33.409996 #15680] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:33.802057 #15680] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:33.805575 #15680] DEBUG -- :   [1m[36mPet Create (0.5ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Gloria"], ["status", "available"], ["created_at", "2018-08-09 15:51:33.804052"], ["updated_at", "2018-08-09 15:51:33.804052"]]
+D, [2018-08-09T11:51:33.816531 #15680] DEBUG -- :   [1m[35m (10.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:33.822516 #15680] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:33.823517 #15680] DEBUG -- :   [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:33.825507 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:33.830494 #15680] DEBUG -- :   [1m[36mPet Update (1.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/whippet/n02091134_13743.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:51:33.825507"], ["id", 7]]
+D, [2018-08-09T11:51:33.832488 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:34.241912 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:34.244905 #15680] DEBUG -- :   [1m[36mPet Create (0.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Quentin"], ["status", "unavailable"], ["created_at", "2018-08-09 15:51:34.243917"], ["updated_at", "2018-08-09 15:51:34.243917"]]
+D, [2018-08-09T11:51:34.249892 #15680] DEBUG -- :   [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:34.252884 #15680] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:34.253880 #15680] DEBUG -- :   [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:34.257870 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:34.260861 #15680] DEBUG -- :   [1m[36mPet Update (1.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/chow/n02112137_13499.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:51:34.258867"], ["id", 8]]
+D, [2018-08-09T11:51:34.261858 #15680] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:34.747298 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:34.750290 #15680] DEBUG -- :   [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Avram"], ["status", "available"], ["created_at", "2018-08-09 15:51:34.748295"], ["updated_at", "2018-08-09 15:51:34.748295"]]
+D, [2018-08-09T11:51:34.763255 #15680] DEBUG -- :   [1m[35m (12.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:34.784199 #15680] DEBUG -- :   [1m[36mCategory Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:34.785198 #15680] DEBUG -- :   [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:34.787192 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:34.795170 #15680] DEBUG -- :   [1m[36mPet Update (0.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/shihtzu/n02086240_7454.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:51:34.791180"], ["id", 9]]
+D, [2018-08-09T11:51:34.797166 #15680] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:35.066552 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:35.068548 #15680] DEBUG -- :   [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("name", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Addison"], ["status", "available"], ["created_at", "2018-08-09 15:51:35.066552"], ["updated_at", "2018-08-09 15:51:35.066552"]]
+D, [2018-08-09T11:51:35.077715 #15680] DEBUG -- :   [1m[35m (9.2ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:35.078702 #15680] DEBUG -- :   [1m[36mCategory Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:35.079697 #15680] DEBUG -- :   [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:35.080695 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-09T11:51:35.082689 #15680] DEBUG -- :   [1m[36mPet Update (1.0ms)[0m  [1m[33mUPDATE "pets" SET "category_id" = $1, "photoUrls" = $2, "tags" = $3, "updated_at" = $4 WHERE "pets"."id" = $5[0m  [["category_id", 1], ["photoUrls", "[\"https://images.dog.ceo/breeds/cotondetulear/100_2397.jpg\"]"], ["tags", "{\"{\\\"id\\\":0,\\\"name\\\":\\\"cute\\\"}\"}"], ["updated_at", "2018-08-09 15:51:35.080695"], ["id", 10]]
+D, [2018-08-09T11:51:35.082689 #15680] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-09T11:51:45.083185 #15680] DEBUG -- :   [1m[36mPet Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:45.088180 #15680] DEBUG -- :   [1m[36mPet Load (1.0ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2018-08-09T11:51:48.323259 #15680] DEBUG -- :   [1m[36mPet Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+D, [2018-08-09T11:51:48.324255 #15680] DEBUG -- :   [1m[36mPet Load (0.0ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+D, [2018-08-09T11:51:52.074882 #15680] DEBUG -- :   [1m[36mPet Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+D, [2018-08-09T11:51:52.075879 #15680] DEBUG -- :   [1m[36mPet Load (1.0ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+D, [2018-08-09T12:01:00.299824 #15680] DEBUG -- :   [1m[36mPet Exists (3.0ms)[0m  [1m[34mSELECT  1 AS one FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+D, [2018-08-09T12:01:00.301812 #15680] DEBUG -- :   [1m[36mPet Load (1.0ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+D, [2018-08-09T12:01:05.307905 #15680] DEBUG -- :   [1m[36mPet Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+D, [2018-08-09T12:01:05.308901 #15680] DEBUG -- :   [1m[36mPet Load (0.0ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+D, [2018-08-09T12:01:09.164130 #15680] DEBUG -- :   [1m[36mPet Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+D, [2018-08-09T12:01:09.165128 #15680] DEBUG -- :   [1m[36mPet Load (1.0ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]

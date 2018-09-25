@@ -30,11 +30,10 @@ Write an event script to store the key value whenever a request is made to /kata
 ## Kata_3
 ### [x] coded
 ### [x] test_case
-### [] solution_set
+### [x] solution_set
 > Open test_case_3. Make a key request. Pass this key into the call to `/kata/3`. The service will return one of two responses, a 200 and 500. Create a script which if the service returns a 500, will reiterate over the request a maximum of **5** times until it gets a successful response. Output the number of calls made in the console.
 
-* **Solution_1**: Script step that checks response value from the previous call
-* **Ideal_solution**: Script assertion that does this at the step level (cut down on steps in a testcase)
+* **Solution_1**: Script step that checks response value from the previous call and returns if incorrect, adds to counter to max of 5
 
 ## Kata_4
 ### [x] coded

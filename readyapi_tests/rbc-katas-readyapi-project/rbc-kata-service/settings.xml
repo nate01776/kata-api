@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="fb099193-62a7-40b1-98a1-a7d0d502e87a" wadlVersion="http://wadl.dev.java.net/2009/02" name="rbc-kata-service" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="fb099193-62a7-40b1-98a1-a7d0d502e87afileName">rbc-kata-service</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart=""/>
+  <con:endpoints>
+    <con:endpoint>http://localhost:4567</con:endpoint>
+  </con:endpoints>
+</con:interface>

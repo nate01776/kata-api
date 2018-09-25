@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="9b576df0-82cd-48e3-bd65-82f669af6ea3" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="test_case_1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="9b576df0-82cd-48e3-bd65-82f669af6ea3fileName">test_case_1</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="get_/1" id="a3a3129c-d9fe-40b7-9d78-5b5fe8dabcd2">
+    <con:settings/>
+    <con:config service="rbc-kata-service" resourcePath="/kata/1" methodName="get_kata" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="get_/1" id="7434ecdc-cb8d-48c4-aa17-c178e1738eba" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:4567</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/kata/1</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

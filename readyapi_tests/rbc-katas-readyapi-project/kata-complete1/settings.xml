@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="5807a237-d7d3-48c3-9f9c-e7c09967e33b" name="kata-complete" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="5807a237-d7d3-48c3-9f9c-e7c09967e33bfileName">kata-complete1</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

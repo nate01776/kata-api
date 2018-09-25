@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="ping" path="/ping" id="5277f481-1873-4547-b8d8-1d934f9c1740" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="5277f481-1873-4547-b8d8-1d934f9c1740fileName">ping</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Method 1" id="ed85019b-517c-49e3-a9f0-1dcfe2d54d3b" method="GET">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="false">
+        <con:name>isFinal</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="FAULT">
+      <con:mediaType>text/html;charset=utf-8</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:element>html</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:ping="http://localhost/ping">ping:Response</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="e9429648-1d8c-425d-b48c-b7225351e94a" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>http://localhost:4567</con:endpoint>
+      <con:request/>
+      <con:originalUri>http://localhost/ping</con:originalUri>
+      <con:credentials>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>isFinal</con:entry>
+      </con:parameterOrder>
+    </con:request>
+  </con:method>
+</con:resource>

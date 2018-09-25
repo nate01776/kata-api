@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="2d40e90e-4cd6-470d-9113-ec21f3355dc1" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="test_case_3" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="2d40e90e-4cd6-470d-9113-ec21f3355dc1fileName">test_case_3</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="get_/key" id="95d5598f-d956-46fc-9caa-3ea3061438a9">
+    <con:settings/>
+    <con:config service="rbc-kata-service" resourcePath="/kata/1" methodName="get_kata" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="get_/key" id="7434ecdc-cb8d-48c4-aa17-c178e1738eba" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:4567</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/kata/1</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="get_/3" id="1c3758ec-686f-4aa5-9a98-375501df75e3">
+    <con:settings/>
+    <con:config service="rbc-kata-service" resourcePath="/kata/1" methodName="get_kata" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="get_/3" id="7434ecdc-cb8d-48c4-aa17-c178e1738eba" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:4567</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/kata/1</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

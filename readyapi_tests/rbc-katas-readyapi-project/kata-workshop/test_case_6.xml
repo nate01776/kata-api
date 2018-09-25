@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="4155e776-3ce5-4d65-ae2b-c8625f27e891" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="test_case_6" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="4155e776-3ce5-4d65-ae2b-c8625f27e891fileName">test_case_6</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="get_/key" id="95e20c27-0d66-480b-8127-7ab3baafc93d">
+    <con:settings/>
+    <con:config service="rbc-kata-service" resourcePath="/kata/1" methodName="get_kata" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="get_/key" id="7434ecdc-cb8d-48c4-aa17-c178e1738eba" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:4567</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/kata/1</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="post_/6" id="a0a0147d-67d8-44a7-afdf-2d34a71c18aa">
+    <con:settings/>
+    <con:config service="rbc-kata-service" resourcePath="/kata/1" methodName="post_kata" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="post_/6" id="da854480-d770-4906-bab3-ee533f590c18" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:4567</con:endpoint>
+        <con:request>{
+	"uuid": "123",
+	"name": "test",
+	"location": "test"
+}</con:request>
+        <con:originalUri>http://localhost/kata/1</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <entry key="id" value="" xmlns="http://eviware.com/soapui/config"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>id</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

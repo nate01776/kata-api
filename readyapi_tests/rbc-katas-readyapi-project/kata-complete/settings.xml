@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="9d0f2026-8e2b-420a-a590-23116fef71eb" wadlVersion="http://wadl.dev.java.net/2009/02" name="kata-complete" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="9d0f2026-8e2b-420a-a590-23116fef71ebfileName">kata-complete</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart=""/>
+  <con:endpoints>
+    <con:endpoint>http://localhost:4567</con:endpoint>
+  </con:endpoints>
+</con:interface>

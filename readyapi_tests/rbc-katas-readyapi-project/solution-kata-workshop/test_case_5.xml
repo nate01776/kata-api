@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="fff94a99-1980-44c1-a56e-d3947e832a6a" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="test_case_5" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="fff94a99-1980-44c1-a56e-d3947e832a6a" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="test_case_5" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="03bd28ff-5ccf-44f3-86c5-692a258dedf0fileName">test_case_5</con:setting>
     <con:setting id="fff94a99-1980-44c1-a56e-d3947e832a6afileName">test_case_5</con:setting>
@@ -111,55 +111,25 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="assertionteststep" name="validateObject" id="61a66415-02b5-46e7-b4aa-4e9ac734450a">
+  <con:testStep type="groovy" name="assertion_script" id="e710ea4b-caff-49ab-8849-53935acc7cb5">
     <con:settings/>
-    <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:entry>
-        <con:id>af41d453-f31d-4753-8d70-d132c92e71c0</con:id>
-        <con:isGroup>false</con:isGroup>
-        <con:sourceId>e908a97c-dd4c-4b3f-ad09-6a3e018059a9</con:sourceId>
-        <con:propertyName>uuid</con:propertyName>
-        <con:assertion type="Simple Contains" name="check_uuid" id="cbfb544c-41c2-4043-aa07-74392d289d2a">
-          <con:configuration>
-            <token/>
-            <ignoreCase>true</ignoreCase>
-            <useRegEx>false</useRegEx>
-          </con:configuration>
-        </con:assertion>
-      </con:entry>
-      <con:entry>
-        <con:id>fca2c7a5-2a2e-4a6b-bd0e-9602eb8ea67b</con:id>
-        <con:isGroup>false</con:isGroup>
-        <con:sourceId>e908a97c-dd4c-4b3f-ad09-6a3e018059a9</con:sourceId>
-        <con:propertyName>location</con:propertyName>
-        <con:assertion type="Simple Contains" name="check_location" id="c388ec45-57d7-4528-b4b0-46194c955847">
-          <con:configuration>
-            <token/>
-            <ignoreCase>false</ignoreCase>
-            <useRegEx>false</useRegEx>
-          </con:configuration>
-        </con:assertion>
-      </con:entry>
-      <con:entry>
-        <con:id>be7cbffe-7134-4642-a8af-5c1d90742bd3</con:id>
-        <con:isGroup>false</con:isGroup>
-        <con:sourceId>e908a97c-dd4c-4b3f-ad09-6a3e018059a9</con:sourceId>
-        <con:propertyName>name</con:propertyName>
-        <con:assertion type="Simple Contains" name="check_name" id="4de311fa-94f0-4030-8793-8761ba467574">
-          <con:configuration>
-            <token>\[a-z]\</token>
-            <ignoreCase>false</ignoreCase>
-            <useRegEx>true</useRegEx>
-          </con:configuration>
-        </con:assertion>
-      </con:entry>
+    <con:config>
+      <script>def uuid = context.expand( '${jsonIterator#uuid}' )
+def name = context.expand( '${jsonIterator#name}' )
+def location = context.expand( '${jsonIterator#location}' )
+
+if (uuid != "" &amp;&amp; name != "" &amp;&amp; location != "") {
+	assert true
+} else {
+	assert false
+}</script>
     </con:config>
   </con:testStep>
   <con:testStep type="datasourceloop" name="DataSource Loop" id="5f65c4b2-5e6c-46de-8eed-959c715ab8ff">
     <con:settings/>
     <con:config>
       <dataSourceStep>jsonIterator</dataSourceStep>
-      <targetStep>DataSink</targetStep>
+      <targetStep>assertion_script</targetStep>
       <discardResults>true</discardResults>
     </con:config>
   </con:testStep>
@@ -176,12 +146,12 @@
     <con:properties/>
   </con:breakPoints>
   <con:breakPoints>
-    <con:testStepId>61a66415-02b5-46e7-b4aa-4e9ac734450a</con:testStepId>
+    <con:testStepId>5f65c4b2-5e6c-46de-8eed-959c715ab8ff</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>
   <con:breakPoints>
-    <con:testStepId>5f65c4b2-5e6c-46de-8eed-959c715ab8ff</con:testStepId>
+    <con:testStepId>e710ea4b-caff-49ab-8849-53935acc7cb5</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>

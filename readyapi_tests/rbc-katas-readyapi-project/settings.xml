@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="1e3c1f57-153b-4f46-9691-67cef4a9d1bd" created="2.5.0" activeEnvironment="Default environment" name="rbc-katas" resourceRoot="" compositeProjectFormat="1.3" updated="2.5.0" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="1e3c1f57-153b-4f46-9691-67cef4a9d1bd" created="2.5.0" activeEnvironment="production" name="rbc-katas" resourceRoot="" compositeProjectFormat="1.3" updated="2.5.0" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="1e3c1f57-153b-4f46-9691-67cef4a9d1bdfileName">rbc-katas</con:setting>
   </con:settings>

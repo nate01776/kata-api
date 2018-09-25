@@ -107,7 +107,9 @@
       <con:element xmlns:ns="http://localhost/kata/6">ns:Fault</con:element>
     </con:representation>
     <con:request name="Request 1" id="5a2906af-2008-4bc8-9bb6-a21586f25756" mediaType="application/json" postQueryString="false">
-      <con:settings/>
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
       <con:endpoint>http://localhost:4567</con:endpoint>
       <con:request/>
       <con:credentials>

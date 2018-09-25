@@ -20,7 +20,7 @@
         <con:path xsi:nil="true"/>
         <con:description xsi:nil="true"/>
       </con:parameter>
-      <con:parameter required="true">
+      <con:parameter required="false">
         <con:name>token</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
@@ -45,6 +45,12 @@
       <con:params/>
       <con:element>html</con:element>
     </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>500 404</con:status>
+      <con:params/>
+      <con:element xmlns:key="http://localhost/kata/key">key:Fault</con:element>
+    </con:representation>
     <con:request name="Request 1" id="231c5814-74d1-4cf3-93c5-519d1f0540a0" mediaType="application/json">
       <con:settings>
         <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
@@ -65,6 +71,54 @@
       <con:parameterOrder>
         <con:entry>kata_number</con:entry>
         <con:entry>token</con:entry>
+        <con:entry>id</con:entry>
+      </con:parameterOrder>
+      <con:environmentSpec>
+        <con:entry environmentId="43fab49b-56a2-4e10-a67f-5970f2a98362">
+          <con:authProfile>No Authorization</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+  </con:method>
+  <con:method name="submit" id="85fc55a0-f2eb-4f4d-b501-0f329d08820b" method="POST">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>id</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>201</con:status>
+      <con:params/>
+      <con:element xmlns:ns="http://localhost/kata/6">ns:Response</con:element>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:element xmlns:ns="http://localhost/kata/6">ns:Fault</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="5a2906af-2008-4bc8-9bb6-a21586f25756" mediaType="application/json" postQueryString="false">
+      <con:settings/>
+      <con:endpoint>http://localhost:4567</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <entry key="kata_number" value="6" xmlns="http://eviware.com/soapui/config"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>kata_number</con:entry>
         <con:entry>id</con:entry>
       </con:parameterOrder>
     </con:request>

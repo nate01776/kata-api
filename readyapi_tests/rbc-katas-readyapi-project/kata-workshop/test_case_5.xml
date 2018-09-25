@@ -6,7 +6,7 @@
   <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:testStep type="restrequest" name="get_/key" id="a9db3280-ec62-4ccd-b73c-3a7a84eca1e2">
     <con:settings/>
-    <con:config service="rbc-kata-service" resourcePath="/kata/1" methodName="get_kata" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:config service="rbc-kata-service" resourcePath="/kata/3" methodName="get_kata" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="get_/key" id="7434ecdc-cb8d-48c4-aa17-c178e1738eba" mediaType="application/json">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
@@ -19,14 +19,23 @@
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters/>
-        <con:parameterOrder/>
+        <con:parameters>
+          <entry key="id" value="" xmlns="http://eviware.com/soapui/config"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>id</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="43fab49b-56a2-4e10-a67f-5970f2a98362">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:restRequest>
     </con:config>
   </con:testStep>
   <con:testStep type="restrequest" name="get_/5" id="be94e9e4-5b48-4063-ad0a-ddcfb8d94e21">
     <con:settings/>
-    <con:config service="rbc-kata-service" resourcePath="/kata/1" methodName="get_kata" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:config service="rbc-kata-service" resourcePath="/kata/3" methodName="get_kata" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="get_/5" id="7434ecdc-cb8d-48c4-aa17-c178e1738eba" mediaType="application/json">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
@@ -39,8 +48,17 @@
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters/>
-        <con:parameterOrder/>
+        <con:parameters>
+          <entry key="id" value="" xmlns="http://eviware.com/soapui/config"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>id</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="43fab49b-56a2-4e10-a67f-5970f2a98362">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:restRequest>
     </con:config>
   </con:testStep>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="fff94a99-1980-44c1-a56e-d3947e832a6a" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="test_case_5" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="03bd28ff-5ccf-44f3-86c5-692a258dedf0fileName">test_case_5</con:setting>
+    <con:setting id="fff94a99-1980-44c1-a56e-d3947e832a6afileName">test_case_5</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="get_/key" id="8f00377d-b941-469b-9b43-b8a0401ebc4a">
+    <con:settings/>
+    <con:config service="kata-complete" resourcePath="/kata/{kata_number}" methodName="number" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="get_/key" id="231c5814-74d1-4cf3-93c5-519d1f0540a0" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@remove_empty_content">false</con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:4567</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/kata/key</con:originalUri>
+        <con:assertion type="JsonPath Existence Match" id="d579c212-638e-423d-9a54-baf0ac2dc486" name="Check for existence of [token]">
+          <con:configuration>
+            <path>$['token']</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="kata_number" value="key"/>
+          <con:entry key="token" value="true"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>kata_number</con:entry>
+          <con:entry>token</con:entry>
+          <con:entry>id</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="43fab49b-56a2-4e10-a67f-5970f2a98362">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="get_/5" id="c8e03253-5de4-4865-81e9-ee0b8c472d57">
+    <con:settings/>
+    <con:config service="kata-complete" resourcePath="/kata/{kata_number}" methodName="number" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="get_/5" id="231c5814-74d1-4cf3-93c5-519d1f0540a0" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@remove_empty_content">false</con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:4567</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/kata/key</con:originalUri>
+        <con:assertion type="JsonPath Match" id="fc98a7fd-1c19-474a-b0c3-1c8178e2f128" name="Match content of [status]">
+          <con:configuration>
+            <path>$['status']</path>
+            <content>200</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="kata_number" value="5"/>
+          <con:entry key="id" value="${get_/key#Response#$['token']}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>kata_number</con:entry>
+          <con:entry>token</con:entry>
+          <con:entry>id</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="43fab49b-56a2-4e10-a67f-5970f2a98362">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="jsonIterator" id="e908a97c-dd4c-4b3f-ad09-6a3e018059a9">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>get_/5</sourceStep>
+          <sourceProperty>Response</sourceProperty>
+          <rowPath>$['payload']</rowPath>
+          <columnPath>uuid</columnPath>
+          <columnPath>name</columnPath>
+          <columnPath>location</columnPath>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>uuid</con:property>
+      <con:property>name</con:property>
+      <con:property>location</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="assertionteststep" name="validateObject" id="61a66415-02b5-46e7-b4aa-4e9ac734450a">
+    <con:settings/>
+    <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:entry>
+        <con:id>af41d453-f31d-4753-8d70-d132c92e71c0</con:id>
+        <con:isGroup>false</con:isGroup>
+        <con:sourceId>e908a97c-dd4c-4b3f-ad09-6a3e018059a9</con:sourceId>
+        <con:propertyName>uuid</con:propertyName>
+        <con:assertion type="Simple Contains" name="check_uuid" id="cbfb544c-41c2-4043-aa07-74392d289d2a">
+          <con:configuration>
+            <token/>
+            <ignoreCase>true</ignoreCase>
+            <useRegEx>false</useRegEx>
+          </con:configuration>
+        </con:assertion>
+      </con:entry>
+      <con:entry>
+        <con:id>fca2c7a5-2a2e-4a6b-bd0e-9602eb8ea67b</con:id>
+        <con:isGroup>false</con:isGroup>
+        <con:sourceId>e908a97c-dd4c-4b3f-ad09-6a3e018059a9</con:sourceId>
+        <con:propertyName>location</con:propertyName>
+        <con:assertion type="Simple Contains" name="check_location" id="c388ec45-57d7-4528-b4b0-46194c955847">
+          <con:configuration>
+            <token/>
+            <ignoreCase>false</ignoreCase>
+            <useRegEx>false</useRegEx>
+          </con:configuration>
+        </con:assertion>
+      </con:entry>
+      <con:entry>
+        <con:id>be7cbffe-7134-4642-a8af-5c1d90742bd3</con:id>
+        <con:isGroup>false</con:isGroup>
+        <con:sourceId>e908a97c-dd4c-4b3f-ad09-6a3e018059a9</con:sourceId>
+        <con:propertyName>name</con:propertyName>
+        <con:assertion type="Simple Contains" name="check_name" id="4de311fa-94f0-4030-8793-8761ba467574">
+          <con:configuration>
+            <token>\[a-z]\</token>
+            <ignoreCase>false</ignoreCase>
+            <useRegEx>true</useRegEx>
+          </con:configuration>
+        </con:assertion>
+      </con:entry>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="5f65c4b2-5e6c-46de-8eed-959c715ab8ff">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>jsonIterator</dataSourceStep>
+      <targetStep>DataSink</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>8f00377d-b941-469b-9b43-b8a0401ebc4a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e908a97c-dd4c-4b3f-ad09-6a3e018059a9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>61a66415-02b5-46e7-b4aa-4e9ac734450a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>5f65c4b2-5e6c-46de-8eed-959c715ab8ff</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:tagId>83f97608-01cf-4442-b0d4-7ec459d50414</con:tagId>
+</con:testCase>

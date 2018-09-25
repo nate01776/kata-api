@@ -1,28 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="81925b1f-e62c-49d7-b04f-07b45336ba08" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="test_case_4" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="a1ef02f4-f737-45b7-a42f-fc6cc0d2b485" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="test_case_4" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="81925b1f-e62c-49d7-b04f-07b45336ba08fileName">test_case_4</con:setting>
+    <con:setting id="a1ef02f4-f737-45b7-a42f-fc6cc0d2b485fileName">test_case_4</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="restrequest" name="get_/key" id="c9c25334-edeb-4b5b-99f4-e97d1c6e6da9">
+  <con:testStep type="restrequest" name="get_/key" id="236d604a-2211-44aa-8cc6-4a2b0e2fbd62">
     <con:settings/>
-    <con:config service="rbc-kata-service" resourcePath="/kata/3" methodName="get_kata" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="get_/key" id="7434ecdc-cb8d-48c4-aa17-c178e1738eba" mediaType="application/json">
+    <con:config service="kata-complete" resourcePath="/kata/{kata_number}" methodName="number" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="get_/key" id="231c5814-74d1-4cf3-93c5-519d1f0540a0" mediaType="application/json">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@remove_empty_content">false</con:setting>
         </con:settings>
         <con:endpoint>http://localhost:4567</con:endpoint>
         <con:request/>
-        <con:originalUri>http://localhost/kata/1</con:originalUri>
+        <con:originalUri>http://localhost/kata/key</con:originalUri>
+        <con:assertion type="JsonPath Existence Match" id="d579c212-638e-423d-9a54-baf0ac2dc486" name="Check for existence of [token]">
+          <con:configuration>
+            <path>$['token']</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <entry key="id" value="" xmlns="http://eviware.com/soapui/config"/>
+          <con:entry key="kata_number" value="key"/>
+          <con:entry key="token" value="true"/>
         </con:parameters>
         <con:parameterOrder>
+          <con:entry>kata_number</con:entry>
+          <con:entry>token</con:entry>
           <con:entry>id</con:entry>
         </con:parameterOrder>
         <con:environmentSpec>
@@ -33,25 +47,39 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="get_/4" id="9085000e-05cd-4e99-89d8-277cc9e5f097">
+  <con:testStep type="restrequest" name="get_/4" id="f5e7520a-29b9-4c1b-978d-bb2c1214c09f">
     <con:settings/>
-    <con:config service="rbc-kata-service" resourcePath="/kata/3" methodName="get_kata" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="get_/4" id="7434ecdc-cb8d-48c4-aa17-c178e1738eba" mediaType="application/json">
+    <con:config service="kata-complete" resourcePath="/kata/{kata_number}" methodName="number" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="get_/4" id="231c5814-74d1-4cf3-93c5-519d1f0540a0" mediaType="application/json">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@remove_empty_content">false</con:setting>
         </con:settings>
         <con:endpoint>http://localhost:4567</con:endpoint>
         <con:request/>
-        <con:originalUri>http://localhost/kata/1</con:originalUri>
+        <con:originalUri>http://localhost/kata/key</con:originalUri>
+        <con:assertion type="GroovyScriptAssertion" id="d9e5dfe8-5bd3-4d71-94e2-6d2ab205e7fd" name="Script Assertion">
+          <con:configuration>
+            <scriptText>def response_status = context.expand( '${get_/4#HarResponse#$[\'status\']}' )
+
+if (response_status != "200") {
+	def testStepObject = context.getTestCase().getTestSteps()
+	
+}</scriptText>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <entry key="id" value="" xmlns="http://eviware.com/soapui/config"/>
+          <con:entry key="kata_number" value="4"/>
+          <con:entry key="id" value="${get_/key#Response#$['token']}"/>
         </con:parameters>
         <con:parameterOrder>
+          <con:entry>kata_number</con:entry>
+          <con:entry>token</con:entry>
           <con:entry>id</con:entry>
         </con:parameterOrder>
         <con:environmentSpec>
@@ -62,7 +90,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="ping" id="c4fa74a7-c9b4-4bb7-82d0-9f65867f6f29">
+  <con:testStep type="restrequest" name="ping" id="164ac47f-4dec-4820-b264-67d16069b298">
     <con:settings/>
     <con:config service="rbc-kata-service" resourcePath="/ping" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="ping" id="e9429648-1d8c-425d-b48c-b7225351e94a" mediaType="application/json">
@@ -91,7 +119,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="ping_1" id="a304c531-d756-450c-881d-378e4c6bfc68">
+  <con:testStep type="restrequest" name="ping_1" id="1c03dc40-5328-49de-992d-a19773c1b034">
     <con:settings/>
     <con:config service="rbc-kata-service" resourcePath="/ping" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="ping_1" id="e9429648-1d8c-425d-b48c-b7225351e94a" mediaType="application/json">
@@ -120,7 +148,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="ping_2" id="5f324770-68ce-4e29-b84d-1a320ac0ea1b">
+  <con:testStep type="restrequest" name="ping_2" id="4e29d309-062a-413c-993e-dd378e23a25c">
     <con:settings/>
     <con:config service="rbc-kata-service" resourcePath="/ping" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="ping_2" id="e9429648-1d8c-425d-b48c-b7225351e94a" mediaType="application/json">
@@ -149,7 +177,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="ping_3" id="08e7b47c-d4eb-4c62-b5fb-bfac6dc2443e">
+  <con:testStep type="restrequest" name="ping_3" id="b7e6f14a-5306-4bff-9dcf-c86b7cb3b941">
     <con:settings/>
     <con:config service="rbc-kata-service" resourcePath="/ping" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="ping_3" id="e9429648-1d8c-425d-b48c-b7225351e94a" mediaType="application/json">
@@ -178,7 +206,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="ping_final" id="1548b504-ed90-42bf-bd16-51495066bc55">
+  <con:testStep type="restrequest" name="ping_final" id="3fc61c9b-171b-48f0-b638-9169679bd840">
     <con:settings/>
     <con:config service="rbc-kata-service" resourcePath="/ping" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="ping_final" id="e9429648-1d8c-425d-b48c-b7225351e94a" mediaType="application/json">
@@ -211,6 +239,16 @@
   <con:reportParameters/>
   <con:breakPoints>
     <con:testStepId>c9c25334-edeb-4b5b-99f4-e97d1c6e6da9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>236d604a-2211-44aa-8cc6-4a2b0e2fbd62</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>f5e7520a-29b9-4c1b-978d-bb2c1214c09f</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>

@@ -39,6 +39,21 @@
 // pw.close()
 // fos.close()</con:script>
   </con:eventHandlers>
+  <con:environment id="43fab49b-56a2-4e10-a67f-5970f2a98362" name="production">
+    <con:service type="REST" name="rbc-kata-service">
+      <con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">https://kata-api.herokuapp.com</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="kata-complete">
+      <con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">https://kata-api.herokuapp.com</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
   <con:authRepository/>
-  <con:tags/>
+  <con:tags>
+    <con:tag>
+      <con:id>83f97608-01cf-4442-b0d4-7ec459d50414</con:id>
+      <con:name>odd</con:name>
+    </con:tag>
+  </con:tags>
 </con:soapui-project>

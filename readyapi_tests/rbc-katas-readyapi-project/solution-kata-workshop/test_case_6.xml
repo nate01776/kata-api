@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="9fcf389b-bf7c-42a4-8610-48ac1a0aa5b4" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="test_case_6" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="4155e776-3ce5-4d65-ae2b-c8625f27e891fileName">test_case_6</con:setting>
+    <con:setting id="9fcf389b-bf7c-42a4-8610-48ac1a0aa5b4fileName">test_case_6</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="get_/key" id="2067c3f6-73d3-4529-a44e-6e768b2025d8">
+    <con:settings/>
+    <con:config service="kata-complete" resourcePath="/kata/{kata_number}" methodName="number" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="get_/key" id="231c5814-74d1-4cf3-93c5-519d1f0540a0" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@remove_empty_content">false</con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:4567</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/kata/key</con:originalUri>
+        <con:assertion type="JsonPath Existence Match" id="d579c212-638e-423d-9a54-baf0ac2dc486" name="Check for existence of [token]">
+          <con:configuration>
+            <path>$['token']</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="kata_number" value="key"/>
+          <con:entry key="token" value="true"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>kata_number</con:entry>
+          <con:entry>token</con:entry>
+          <con:entry>id</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="43fab49b-56a2-4e10-a67f-5970f2a98362">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="inputData" id="2abeac91-34a9-4f59-8346-86f5e55c9a96">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Excel">
+        <con:configuration>
+          <file>C:/Users/nathan.wright/Code/kata-api/readyapi_tests/rbc-katas-readyapi-project/extras/input_data.xlsx</file>
+          <worksheet/>
+          <cell>A2</cell>
+          <ignoreEmpty>false</ignoreEmpty>
+          <evaluateFormulas>false</evaluateFormulas>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>uuid</con:property>
+      <con:property>name</con:property>
+      <con:property>location</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="post_/6" id="68c68c63-d660-4c70-abb4-eed266b85e9b">
+    <con:settings/>
+    <con:config service="kata-complete" resourcePath="/kata/{kata_number}" methodName="submit" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="post_/6" id="5a2906af-2008-4bc8-9bb6-a21586f25756" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:4567</con:endpoint>
+        <con:request>{
+	"uuid": "${inputData#uuid}",
+	"name": "${inputData#name}",
+	"location": "${inputData#location}"
+}</con:request>
+        <con:originalUri>http://localhost/kata/6</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="b935e555-96f2-4258-bfcb-4e4772550c7e" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>201, 404</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="kata_number" value="6"/>
+          <con:entry key="id" value="${get_/key#Response#$['token']}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>kata_number</con:entry>
+          <con:entry>id</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasink" name="writeResults" id="0ff1ec82-3e37-4de6-bcdc-44eb9f784641">
+    <con:settings/>
+    <con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSink type="Excel">
+        <con:configuration>
+          <file>C:/Users/nathan.wright/Code/kata-api/readyapi_tests/rbc-katas-readyapi-project/extras/input_data.xlsx</file>
+          <outfile>C:/Users/nathan.wright/Code/kata-api/readyapi_tests/rbc-katas-readyapi-project/extras/input_data.xlsx</outfile>
+          <worksheet>results</worksheet>
+          <cell>A1</cell>
+          <evaluateFormulas>false</evaluateFormulas>
+          <append>true</append>
+        </con:configuration>
+      </con:dataSink>
+      <con:properties>
+        <con:property>
+          <con:name>status</con:name>
+          <con:value>${post_/6#HarResponse#$['status']}</con:value>
+        </con:property>
+        <con:property>
+          <con:name>uuid</con:name>
+          <con:value>${inputData#uuid}</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="14c91f24-6b0a-403e-b0df-cf4f504d45e1">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>inputData</dataSourceStep>
+      <targetStep>post_/6</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>2067c3f6-73d3-4529-a44e-6e768b2025d8</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>2abeac91-34a9-4f59-8346-86f5e55c9a96</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>0ff1ec82-3e37-4de6-bcdc-44eb9f784641</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>14c91f24-6b0a-403e-b0df-cf4f504d45e1</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

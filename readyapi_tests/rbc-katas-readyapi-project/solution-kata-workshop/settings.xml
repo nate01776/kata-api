@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="7b619fd5-0fe5-4028-81f7-309af2ee9019" name="solution-kata-workshop" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="47c55e9d-d65b-47a8-966f-0f5f7cb2c547fileName">kata-workshop</con:setting>
+    <con:setting id="7b619fd5-0fe5-4028-81f7-309af2ee9019fileName">solution-kata-workshop</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties>
+    <con:property>
+      <con:name>token</con:name>
+      <con:value/>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+</con:testSuite>

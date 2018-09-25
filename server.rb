@@ -185,15 +185,15 @@ post '/kata/6' do
     error_messages = []
     post_body = JSON.parse(request.body.read).symbolize_keys unless params[:path]
 
-    if post_body[:uuid] === nil
+    if post_body[:uuid] === "" || post_body[:uuid] === nil
         error_messages << "Please include a UUID in all POST bodies"
     end
     
-    if post_body[:name] === nil
+    if post_body[:name] === "" || post_body[:name] === nil
         error_messages << "Please include a name in all POST bodies"
     end
     
-    if post_body[:location] === nil
+    if post_body[:location] === "" || post_body[:location] === nil
         error_messages << "Please include a location in all POST bodies"
     end
     

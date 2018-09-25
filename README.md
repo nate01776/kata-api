@@ -11,7 +11,7 @@
 ## Kata_1
 ### [x] coded
 ### [x] test_case
-### [] solution_set
+### [x] solution_set
 > Open test_case_1. The project contains a call to a remote resource. The original creator hard coded the kata number into the path. Make this value dynamic so we can re-use the call across our upcoming test cases and make a request to `/kata/1` to validate
 
 * Solution: Update the request at the project level to include a dynamic path item.
@@ -20,7 +20,7 @@
 ### [x] coded
 ### [x] test_case
 ### [] solution_set
-> Open test_case_2. Update the 'get_kata/key' step to have path `/kata/key` and add query parameter token which is set to 'true'. The service will return a unique key that will be used in the upcoming requests, and will change each time a call is made. Make a second, subsequent request with the same key added as a query parameter 'id' (do not request a token in the second call) to `/kata/2` and run as a sequence. Do not hard code the key value. The service will return a 200 response.
+> Open test_case_2. Update the 'get_/key' step to have path `/kata/key` and add query parameter token which is set to 'true'. The service will return a unique key that will be used in the upcoming requests, and will change each time a call is made. Make a second, subsequent request with the same key added as a query parameter 'id' (do not request a token in the second call) to `/kata/2` and run as a sequence. Do not hard code the key value. The service will return a 200 response.
 ==extra== 
 Write an event script to store the key value whenever a request is made to /kata/key
 

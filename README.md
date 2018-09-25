@@ -19,7 +19,7 @@
 ## Kata_2
 ### [x] coded
 ### [x] test_case
-### [] solution_set
+### [x] solution_set
 > Open test_case_2. Update the 'get_/key' step to have path `/kata/key` and add query parameter token which is set to 'true'. The service will return a unique key that will be used in the upcoming requests, and will change each time a call is made. Make a second, subsequent request with the same key added as a query parameter 'id' (do not request a token in the second call) to `/kata/2` and run as a sequence. Do not hard code the key value. The service will return a 200 response.
 ==extra== 
 Write an event script to store the key value whenever a request is made to /kata/key

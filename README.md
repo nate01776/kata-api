@@ -1,9 +1,8 @@
 # RBC_katas
-Project is a collection of test cases, each one building on the last, with pre-defined intial calls (or the API calls are pre-defined at the project level). Call is made to sample app, each path is unique to a new kata /kata/1/...
+## Currently the workshop API is hosted at https://kata-api.herokuapp.com
 
 ## Kata_Setup
 > Welcome to Smartbear's SoapUI training workshop! We will work through a series of small exercises to uncover some new approachs and solutions within the tool. We will go through a few exercises to get set up with a remote resource, and then experiment with some advanced features and scripting exercises. For our first kata:
-
 - Navigate to http://bitly.com/x
 - Bring the composite project into ReadyAPI
   * **Solution_1**: Download and import manually
@@ -13,7 +12,7 @@ Project is a collection of test cases, each one building on the last, with pre-d
 ### [x] coded
 ### [x] test_case
 ### [x] solution_set
-> Open test_case_1. The project contains a call to a remote resource. The original creator hard coded the kata number into the path. Make this value dynamic so we can re-use the call across our upcoming test cases.
+> Open test_case_1. The project contains a call to a remote resource. The original creator hard coded the kata number into the path. Make this value dynamic so we can re-use the call across our upcoming test cases and make a request to `/kata/1` to validate
 
 * Solution: Update the request at the project level to include a dynamic path item.
 
@@ -34,8 +33,7 @@ Write an event script to store the key value whenever a request is made to /kata
 ### [x] solution_set
 > Open test_case_3. Make a key request. Pass this key into the call to `/kata/3`. The service will return one of two responses, a 200 and 500. Create a script which if the service returns a 500, will reiterate over the request a maximum of **5** times until it gets a successful response. Output the number of calls made in the console.
 
-* **Solution_1**: Script step that checks response value from the previous call
-* **Ideal_solution**: Script assertion that does this at the step level (cut down on steps in a testcase)
+* **Solution_1**: Script step that checks response value from the previous call and returns if incorrect, adds to counter to max of 5
 
 ## Kata_4
 ### [x] coded

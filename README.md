@@ -47,7 +47,7 @@ Write an event script to store the key value whenever a request is made to /kata
 ## Kata_5
 ### [x] coded
 ### [x] test_case
-### [] solution_set -- assertion regex needs to be written
+### [x] solution_set
 > Open test_case_5. Make a key request. The call should return an array of objects, different in length each time. Each object should contain UUID, name and location values. Validate that each object contains these - random objects will be malformed. Log each of the 'bad' objects to the console, as well as the number overall in the array.
 
 * **Solution**: Script step to iterate over data
@@ -70,8 +70,8 @@ Write an event script to store the key value whenever a request is made to /kata
 * **Solution**: Excel Datasource loop, Datasink as step.
 
 ## Kata_7
-### [] image to add
-### [] solution_set
+### [x] image to add
+### [x] solution_set
 > Each time a test is run in our automation suite, we are expected to output a PDF version of the report. Currently, ReadyAPI is the only brand on the PDF. Update the template with the image include in the /extras directory in the composite project that was accessed through github.
 
 * **Solution**: Update reporting template w/new image.

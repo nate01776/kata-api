@@ -70,8 +70,8 @@ Write an event script to store the key value whenever a request is made to /kata
 * **Solution**: Excel Datasource loop, Datasink as step.
 
 ## Kata_7
-### [] image to add
-### [] solution_set
+### [x] image to add
+### [x] solution_set
 > Each time a test is run in our automation suite, we are expected to output a PDF version of the report. Currently, ReadyAPI is the only brand on the PDF. Update the template with the image include in the /extras directory in the composite project that was accessed through github.
 
 * **Solution**: Update reporting template w/new image.

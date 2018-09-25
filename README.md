@@ -12,7 +12,7 @@
 ### [x] coded
 ### [x] test_case
 ### [] solution_set
-> Open test_case_1. The project contains a call to a remote resource. The original creator hard coded the kata number into the path. Make this value dynamic so we can re-use the call across our upcoming test cases.
+> Open test_case_1. The project contains a call to a remote resource. The original creator hard coded the kata number into the path. Make this value dynamic so we can re-use the call across our upcoming test cases and make a request to `/kata/1` to validate
 
 * Solution: Update the request at the project level to include a dynamic path item.
 

@@ -1,9 +1,8 @@
 # RBC_katas
-Project is a collection of test cases, each one building on the last, with pre-defined intial calls (or the API calls are pre-defined at the project level). Call is made to sample app, each path is unique to a new kata /kata/1/...
+## Currently the workshop API is hosted at https://kata-api.herokuapp.com
 
 ## Kata_Setup
 > Welcome to Smartbear's SoapUI training workshop! We will work through a series of small exercises to uncover some new approachs and solutions within the tool. We will go through a few exercises to get set up with a remote resource, and then experiment with some advanced features and scripting exercises. For our first kata:
-
 - Navigate to http://bitly.com/x
 - Bring the composite project into ReadyAPI
   * **Solution_1**: Download and import manually
